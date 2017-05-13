@@ -90,6 +90,10 @@ public class Agregar extends HttpServlet {
 			
 		}else if(accion.equals("alumno")){
 			
+			
+			
+			
+			
 			PersonaBean beanPersona = null;
 			String nombres = request.getParameter("nombres");
 			String apeP = request.getParameter("apeP");
@@ -99,20 +103,7 @@ public class Agregar extends HttpServlet {
 			if(distrito == null){
 				distrito = "Lima";
 			}
-			String fec_nac = request.getParameter("fec_nac");			
-			String dni = request.getParameter("dni");
-			String tel_c = request.getParameter("tel_c");
-			String tel_m = request.getParameter("tel_m");
-			String correo = request.getParameter("correo");
 			
-			int maxPersona = 0;
-			beanPersona = new PersonaBean( maxPersona, nombres, apeP, apeM, direccion, distrito, fec_nac, dni, tel_c, tel_m, correo,0);
-			
-			DAOFactory dao = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-			PersonaDAO persoDao = dao.obtenerPersonaDao();
-			
-			PersonaBean personaAgregada;
-			personaAgregada = persoDao.agregarPersona(beanPersona);
 			
 			
 			String mensaje = "Se agregó correctamente a la persona : "+nombres +", "+apeP+" "+apeM;
@@ -120,6 +111,15 @@ public class Agregar extends HttpServlet {
 			request.setAttribute("mensaje", mensaje);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/resultado.jsp");
 			rd.forward(request, response);
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}else if(accion.equals("vehiculo")){
 			DAOFactory dao = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 			VehiculoBean vehBean = null;
